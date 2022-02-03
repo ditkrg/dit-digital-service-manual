@@ -1,1 +1,1 @@
-# dit-digital-service-manual
+# DIT Digital Service Manual
