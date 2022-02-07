@@ -46,7 +46,7 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://github.com/AzaKamala/dit-digital-service-manual',
+            href: 'https://github.com/ditkrg/dit-digital-service-manual',
             label: 'GitHub',
             position: 'right',
           },
@@ -78,7 +78,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/AzaKamala/dit-digital-service-manual',
+                href: 'https://github.com/ditkrg/dit-digital-service-manual',
               },
             ],
           },
