@@ -56,9 +56,25 @@ After finding all the stakeholders, you need to go through the service with them
 
 -   Build a [flowchart](documentationGuideline.md#flowchart-diagram-guideline) for the workflow of the current and proposed service
 
-### 5\. Find the KRG rules and regulations related to this service
+### 5\. Understand the constraints related to the service
 
-It is important to understand the legislation for building this service, so that you understand why this service exists, and why it is important to be digitized.
+It is important to understand the legislation for building this service. It will help you in coming up with the right solution for the problem, or in deciding whether to push this project into the development phase or not. These constraints can be:
+
+-   Processes that can not be improved (e.g. paper based processes)
+
+-   Legacy systems
+
+-   Legislations
+
+-   Contracts
+
+There are constraints that can not be changed and constraints that can. Primary legislation or contracts is an example of constraints that can not be changed, you have to find a solution that can work with those constraints. Paper based processes are an example of constraints that can be changed, you can turn that process into a digital process. It is important to deliver the best possible service and not just work around the constraints, that is why you have to push the client for changes in the constraints in certain situations.
+
+This step will help you with:
+
+1.  Whether to forward this project to the development phase or not.
+
+2.  Prioritizing the requirements.
 
 #### Key points
 
@@ -72,6 +88,12 @@ It is important to understand the legislation for building this service, so that
 
 -   Why do these rules and regulations exist?
 
+-   Are there any paper based processes? And how can we improve that?
+
+-   Are there any legacy systems that are used for this service?
+
+-   Are there any contracts that prevent this service from improving?
+
 ### 6\. Share the document with the clients
 
 After you have done your research and documented all the requirements, share all the documentations with them. It is important that you go through the documentation again with the clients, to make sure that you have everything documented and all of them are correct.
@@ -81,5 +103,22 @@ After you have done your research and documented all the requirements, share all
 -   Go through the flowchart with the stakeholders
 
 -   Do not make any assumptions in the requirements, make sure the requirements are correct
+
+## When to stop discovery phase
+At the end of discovery there is two decision available to be made:
+
+-   You have enough requirements to start building a viable product that fits the users needs, and move the project to the development phase.
+
+-   It is time consuming to solve the problem at the moment or there are some constraints that prevent us from improving the service, and the project will not be moved into the development phase.
+
+To make sure it is the right time to move the project forward into development phase, keep these key points in mind:
+
+-   You understand the context of the service, constraints, problem, and the user's needs.
+
+-   You have documented the solution and enough requirements to hand it over to the Development team.
+
+-   Those requirements and solutions are confirmed by both the client and the discovery team.
+
+If at the end of the discovery phase you came to a conclusion that the project should not move forward to development, it is okay to stop and save time for other projects that have more priority.
 
 Now that you have been through all the steps,  you are ready to prepare the final document using this [template](https://docs.google.com/document/d/1FZqdr-2xK0YuyiWsdvuDQHNCscFL4xJHDe9ueMUP_Us/edit) with the help of the [documentation guideline](documentationGuideline.md). It is mandatory for you to use the template for documentation and follow the guideline for ease of understanding the service by the development team.
