@@ -5,8 +5,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'KRG Service Manual',
-  url: 'https://your-docusaurus-test-site.com',
+  title: 'DIT Digital Service Manual',
+  url: 'https://service-manual.docs.dev.krd',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
