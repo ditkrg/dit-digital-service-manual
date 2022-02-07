@@ -4,7 +4,7 @@ The Department of Information Technology uses an agile methodology for developin
 
 ## Discovery phase
 
-The first step of the process is to understand what is the service, what are the problems that the service is going through, what the user needs, and what are the constraints related to this service. Understanding all these concepts will help in digitizing or developing the service in the best way possible. The discovery phase is a crucial part of the project life cycle, that is why all the conducted research on the service and the users (citizens or government employees) is documented. This documentation is used later on in the development phase for developing the software the best way possible before shipping it to production. If at the end of the discovery phase you came to a conclusion that the project should not move forward to development, it is okay to stop and save time for other projects that have more priority.
+The first step of the process is to understand what is the service, what are the problems that the service is going through, what the user needs, and what are the constraints related to this service. Understanding all these concepts will help in digitizing or developing the service in the best way possible. The discovery phase is a crucial part of the project life cycle, that is why all the conducted research on the service and the users (citizens or government employees) is documented. This documentation is used later on in the development phase for developing the software the best way possible before shipping it to production.
 
 -   [A Guideline for Discovery Phase](./Discovery/discoveryPhaseGuideline.md)
 -   [Documentation Guideline](./Discovery/documentationGuideline.md)
