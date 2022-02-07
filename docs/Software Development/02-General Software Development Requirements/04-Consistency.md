@@ -1,0 +1,2 @@
+# Consistency
+Applications must be built in a consistent manner from the perspective of the end-user. In case if the need of an inconsistent behavior may arise, it must be properly communicated by the Head of Software Development Team for an approval. Unapproved inconsistencies are not accepted. This must also be respected when adding new features, making changes and improvements, or fixing bugs to existing applications. 
