@@ -1,0 +1,14 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: dit-docs
+namePrefix: dsm-client-
+
+resources:
+  - ../base
+
+patches:
+  - path: patches/ingress-host.yaml
+    target:
+      kind: Ingress

@@ -1,0 +1,15 @@
+.env
+.git
+.github
+.dockerignore
+.gitignore
+.docusaurus
+build
+README.md
+Dockerfile
+kubernetes
+
+# Artifacts that will be built during image creation.
+# This should contain all files created during `npm run build`.
+build
+node_modules

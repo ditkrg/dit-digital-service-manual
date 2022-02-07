@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  labels:
+    app: dsm-client
+
+spec:
+  selector:
+    matchLabels:
+      app: dsm-client
+
+  template:
+    metadata:
+      labels:
+        app: dsm-client
+
+    spec:
+      containers:
+        - name: dsm-client
+          image: IMAGE
+          resources:
+            limits:
+              memory: 32Mi
+              cpu: 500m
+            requests:
+              memory: 32Mi
+              cpu: 5m
+          ports:
+            - containerPort: 80
+
+          livenessProbe:
+            initialDelaySeconds: 5
+            periodSeconds: 15
+            httpGet:
+              path: /health
+              port: 80

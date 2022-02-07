@@ -1,0 +1,32 @@
+name: Run Tests
+
+on:
+  workflow_call:
+
+jobs:
+  run-tests:
+    name: Run Tests
+    timeout-minutes: 10
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Kubectl tool installer
+        uses: Azure/setup-kubectl@v1
+
+      - name: Setup Kustomize
+        uses: imranismail/setup-kustomize@v1
+        with:
+          kustomize-version: "4.4.1"
+
+      - name: Build k8s manifests
+        working-directory: kubernetes
+        run: |
+          envs=( "development" )
+
+          for i in "${envs[@]}"
+          do 
+            kustomize build "$i"
+          done

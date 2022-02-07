@@ -1,0 +1,54 @@
+name: Deploy To Development
+
+on:
+  push:
+    branches:
+      - dev
+    paths-ignore:
+      - "README.md"
+      - ".vscode/**"
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  setup:
+    name: Setup
+    runs-on: ubuntu-20.04
+    env:
+      IMAGE_REPO: reg.dev.krd/dit-docs/dsm-client
+    steps:
+      - name: Extract image name
+        run: |
+          REF_NAME=$(echo ${GITHUB_REF##*/})
+          echo "IMAGE=$IMAGE_REPO:$REF_NAME" >> $GITHUB_ENV
+    outputs:
+      image: ${{ env.IMAGE }}
+      image-sha: ${{ env.IMAGE }}-${{ github.sha }}
+
+  test:
+    uses: ditkrg/dit-digital-service-manual/.github/workflows/tests-base.yaml@dev
+
+  build:
+    uses: ditkrg/common-github-workflows/.github/workflows/build-push-image.yaml@main
+    needs: [setup, test]
+    with:
+      tags: |-
+        ${{ needs.setup.outputs.image }}
+        ${{ needs.setup.outputs.image-sha }}
+      cache-from: type=registry,ref=${{ needs.setup.outputs.image }}
+    secrets:
+      username: ${{ secrets.HARBOR_USER }}
+      password: ${{ secrets.HARBOR_TOKEN }}
+
+  deploy:
+    uses: ditkrg/dit-digital-service-manual/.github/workflows/deploy-base.yaml@dev
+    needs: [setup, build]
+    with:
+      image: ${{ needs.setup.outputs.image-sha }}
+      env_url: https://service-manual.docs.dev.krd
+      env_name: development
+
+    secrets:
+      KUBECONFIG: ${{ secrets.KUBECONFIG }}

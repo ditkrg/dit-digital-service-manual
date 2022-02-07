@@ -1,0 +1,9 @@
+- op: add
+  path: /spec/rules/0/host
+  value: service-manual.docs.dev.krd
+- op: add
+  path: /spec/tls
+  value:
+    - hosts:
+        - service-manual.docs.dev.krd
+      secretName: ingress-cert-dit-docs-dsm-client
