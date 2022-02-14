@@ -24,7 +24,7 @@ jobs:
       - name: Build k8s manifests
         working-directory: kubernetes
         run: |
-          envs=( "development" )
+          envs=( "development" "production" )
 
           for i in "${envs[@]}"
           do 

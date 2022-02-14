@@ -9,7 +9,7 @@ on:
       - ".vscode/**"
 
 concurrency:
-  group: deploy-${{ github.ref }}
+  group: deploy-dev
   cancel-in-progress: true
 
 jobs:
@@ -17,12 +17,10 @@ jobs:
     name: Setup
     runs-on: ubuntu-20.04
     env:
-      IMAGE_REPO: reg.dev.krd/dit-docs/dsm-client
+      IMAGE: "reg.dev.krd/dit-docs/dsm-client:${{ github.ref_name }}"
     steps:
       - name: Extract image name
-        run: |
-          REF_NAME=$(echo ${GITHUB_REF##*/})
-          echo "IMAGE=$IMAGE_REPO:$REF_NAME" >> $GITHUB_ENV
+        run: echo "Using image name $IMAGE"
     outputs:
       image: ${{ env.IMAGE }}
       image-sha: ${{ env.IMAGE }}-${{ github.sha }}
@@ -30,21 +28,35 @@ jobs:
   test:
     uses: ditkrg/dit-digital-service-manual/.github/workflows/tests-base.yaml@dev
 
-  build:
-    uses: ditkrg/common-github-workflows/.github/workflows/build-push-image.yaml@main
+  build-push:
+    name: Build and Push
     needs: [setup, test]
-    with:
-      tags: |-
-        ${{ needs.setup.outputs.image }}
-        ${{ needs.setup.outputs.image-sha }}
-      cache-from: type=registry,ref=${{ needs.setup.outputs.image }}
-    secrets:
-      username: ${{ secrets.HARBOR_USER }}
-      password: ${{ secrets.HARBOR_TOKEN }}
+    runs-on: ubuntu-20.04
+    timeout-minutes: 10
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to Registry
+        uses: docker/login-action@v1
+        with:
+          registry: reg.dev.krd
+          username: ${{ secrets.HARBOR_PUBLIC_USER }}
+          password: ${{ secrets.HARBOR_PUBLIC_TOKEN }}
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: |-
+            ${{ needs.setup.outputs.image }}
+            ${{ needs.setup.outputs.image-sha }}
+          cache-from: type=registry,ref=${{ needs.setup.outputs.image }}
+          cache-to: type=inline
 
   deploy:
     uses: ditkrg/dit-digital-service-manual/.github/workflows/deploy-base.yaml@dev
-    needs: [setup, build]
+    needs: [setup, build-push]
     with:
       image: ${{ needs.setup.outputs.image-sha }}
       env_url: https://service-manual.docs.dev.krd
