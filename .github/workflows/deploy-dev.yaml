@@ -17,12 +17,10 @@ jobs:
     name: Setup
     runs-on: ubuntu-20.04
     env:
-      IMAGE_REPO: reg.dev.krd/dit-docs/dsm-client
+      IMAGE: "reg.dev.krd/dit-docs/dsm-client:${{ github.ref_name }}"
     steps:
       - name: Extract image name
-        run: |
-          REF_NAME=$(echo ${GITHUB_REF##*/})
-          echo "IMAGE=$IMAGE_REPO:$REF_NAME" >> $GITHUB_ENV
+        run: echo "Using image name $IMAGE"
     outputs:
       image: ${{ env.IMAGE }}
       image-sha: ${{ env.IMAGE }}-${{ github.sha }}
@@ -53,8 +51,8 @@ jobs:
           tags: |-
             ${{ needs.setup.outputs.image }}
             ${{ needs.setup.outputs.image-sha }}
-          cache-from: type=registry,ref=${{ needs.setup.outputs.image }}-buildcache
-          cache-to: type=registry,ref=${{ needs.setup.outputs.image }}-buildcache,mode=max
+          cache-from: type=registry,ref=${{ needs.setup.outputs.image }}
+          cache-to: type=inline
 
   deploy:
     uses: ditkrg/dit-digital-service-manual/.github/workflows/deploy-base.yaml@dev

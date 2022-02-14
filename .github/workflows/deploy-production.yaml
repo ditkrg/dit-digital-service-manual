@@ -51,8 +51,8 @@ jobs:
           tags: |-
             ${{ needs.setup.outputs.image }}
             ${{ needs.setup.outputs.image-sha }}
-          cache-from: type=registry,ref=${{ needs.setup.outputs.image }}-buildcache
-          cache-to: type=registry,ref=${{ needs.setup.outputs.image }}-buildcache,mode=max
+          cache-from: type=registry,ref=${{ needs.setup.outputs.image }}
+          cache-to: type=inline
 
   deploy:
     uses: ditkrg/dit-digital-service-manual/.github/workflows/deploy-base.yaml@main
