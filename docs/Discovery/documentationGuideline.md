@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Documenting the system requirements is really important in the discovery phase for understanding what the service is, why it exists, and how it can be improved. It will have a lot of impact in the development phase, the development team can understand the system really quickly and build it in less errors. Use this [template](https://docs.google.com/document/u/0/d/1FZqdr-2xK0YuyiWsdvuDQHNCscFL4xJHDe9ueMUP_Us/edit) for documenting the requirements according to the guidelines in this page.
+Documenting the system requirements is really important in the discovery phase for understanding what the service is, why it exists, and how it can be improved. It will have a lot of impact in the development phase, the development team can understand the system really quickly and build it in less errors. Use this [template](https://govkrd.b-cdn.net/Digital%20Service%20Manual/Master%20Document%20Template.docx) for documenting the requirements according to the guidelines in this page.
 
 ## Mind mapping guideline
 

@@ -1,0 +1,2 @@
+# Intro
+Race condition is the situation where certain behavior of a system is controlled by the sequence or the timing of events; hence resulting in unintended consequences that are typically considered to be a bug. 

@@ -1,0 +1,10 @@
+# Concurrency
+The primary enabler of distributed systems is concurrency and it is usually its primary headache. When creating concurrent applications, the developer must be careful with the design of that application so that it does not run into race condition as described above. This means that application designs in concurrent situations must calculate for sequence and timing properly using certain techniques, and even strategies. These include thread-safe practices, atomic operations, locking (if required).
+
+## Optimistic Concurrency Control (OCC)
+
+A very common malpractice in distributed systems that ignores race conditions is the 'check-then-act' method. In light of this, two concurrent processes may try to perform an operation, but before doing so, they must check if a certain condition is met. Unbeknown to each other, both processes check and meet the condition; therefore they act. In between these checks and the act, and due to a timing issue, another process may alter the condition, unbeknown to the previous processes. Thus, resulting in a situation where the condition is not met, but the act is performed. 
+
+Optimistic Concurrency Control resolves this by removing the check in 'check-then-act'. It rather assumes that multiple transactions can be safely performed without locking the resources. In case if two processes try to modify the same resource, the processes acts without checking pre-conditions but must check the version of the resource and rollback if it has indeed changed. 
+
+We highly encourage considering Optimistic Concurrency Control over Pessimistic Concurrency Control (PCC) as much as possible as the implementation complexity of the later almost often beats its advantages. If the use of PCC is absolutely necessary, speak to the Head of Digital Development to obtain approval.
