@@ -7,9 +7,8 @@ on:
       - staging
       - main
     paths-ignore:
-      - "**.md"
+      - "README.md"
       - ".vscode/**"
-  pull_request:
 
 jobs:
   run-tests:
@@ -32,7 +31,7 @@ jobs:
       - name: Build k8s manifests
         working-directory: kubernetes
         run: |
-          envs=( "development" )
+          envs=( "development" "production" )
 
           for i in "${envs[@]}"
           do 
