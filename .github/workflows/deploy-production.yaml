@@ -30,6 +30,7 @@ jobs:
 
   build-push:
     name: Build and Push
+    needs: [setup, test]
     runs-on: ubuntu-20.04
     timeout-minutes: 10
     steps:
