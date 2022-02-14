@@ -1,0 +1,52 @@
+name: Deploy To Production
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "README.md"
+      - ".vscode/**"
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
+jobs:
+  setup:
+    name: Setup
+    runs-on: ubuntu-20.04
+    env:
+      IMAGE: "reg.dev.krd/dit-docs/dsm-client:${{ github.ref_name }}"
+    steps:
+      - name: Extract image name
+        run: echo "Using image name $IMAGE"
+    outputs:
+      image: ${{ env.IMAGE }}
+      image-sha: ${{ env.IMAGE }}-${{ github.sha }}
+
+  test:
+    uses: ditkrg/dit-digital-service-manual/.github/workflows/tests-base.yaml@main
+
+  build:
+    uses: ditkrg/common-github-workflows/.github/workflows/build-push-image.yaml@main
+    needs: [setup, test]
+    with:
+      tags: |-
+        ${{ needs.setup.outputs.image }}
+        ${{ needs.setup.outputs.image-sha }}
+      cache-from: type=registry,ref=${{ needs.setup.outputs.image }}
+    secrets:
+      username: ${{ secrets.HARBOR_USER }}
+      password: ${{ secrets.HARBOR_TOKEN }}
+
+  deploy:
+    uses: ditkrg/dit-digital-service-manual/.github/workflows/deploy-base.yaml@main
+    needs: [setup, build]
+    with:
+      image: ${{ needs.setup.outputs.image-sha }}
+      env_url: https://docs.digital.gov.krd
+      env_name: production
+
+    secrets:
+      KUBECONFIG: ${{ secrets.KUBECONFIG }}
