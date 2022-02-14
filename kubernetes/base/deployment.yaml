@@ -17,6 +17,11 @@ spec:
         app: dsm-client
 
     spec:
+      securityContext:
+        runAsNonRoot: true
+        fsGroup: 1001
+        sysctls: []
+
       containers:
         - name: dsm-client
           image: IMAGE
@@ -28,11 +33,26 @@ spec:
               memory: 32Mi
               cpu: 5m
           ports:
-            - containerPort: 80
+            - name: http
+              containerPort: 8080
 
           livenessProbe:
+            tcpSocket:
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+            successThreshold: 1
+
+          readinessProbe:
+            tcpSocket:
+              port: http
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+            successThreshold: 1
             initialDelaySeconds: 5
-            periodSeconds: 15
-            httpGet:
-              path: /health
-              port: 80
+
+          securityContext:
+            runAsUser: 1001
+            runAsNonRoot: true
