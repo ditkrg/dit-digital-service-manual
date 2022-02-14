@@ -55,7 +55,7 @@ jobs:
 
   deploy:
     uses: ditkrg/dit-digital-service-manual/.github/workflows/deploy-base.yaml@main
-    needs: [setup, build]
+    needs: [setup, build-push]
     with:
       image: ${{ needs.setup.outputs.image-sha }}
       env_url: https://docs.digital.gov.krd
