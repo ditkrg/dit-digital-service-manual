@@ -18,9 +18,10 @@ spec:
 
     spec:
       securityContext:
+        fsGroup: 101
+        runAsUser: 101
+        runAsGroup: 101
         runAsNonRoot: true
-        fsGroup: 1001
-        sysctls: []
 
       containers:
         - name: dsm-client
@@ -52,7 +53,3 @@ spec:
             failureThreshold: 3
             successThreshold: 1
             initialDelaySeconds: 5
-
-          securityContext:
-            runAsUser: 1001
-            runAsNonRoot: true
