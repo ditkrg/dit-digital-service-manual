@@ -39,7 +39,7 @@ Use the following checklist when dealing with a microservices architecture inter
 {
   meta: {
     page: {
-      totalPage: "integer"
+      totalPages: "integer"
       count: "integer",
       limitValue:	"integer",
       currentPage:	"integer"
