@@ -20,6 +20,7 @@ Use the following checklist when dealing with a microservices architecture inter
 | SMR-14 | REST: Use Idempotency Key                      | For POST, DELETE and PATCH requests, require header Idempotency-Key to be present. Process requests with the same idempotency key only once. |
 | SMR-15 | Use Open API for REST Documentation            | Use Open API >= 3 to document REST endpoint                  |
 | SMR-16 | Use AsyncAPI For Events Documentation          | Use AsyncAPI >= 2 to document Events.                        |
+| SMR-17 | Pagination must start from 1, not 0            | Pagination must start from page 1. This means that at Page 1, the offset is 0. |
 
 
 
