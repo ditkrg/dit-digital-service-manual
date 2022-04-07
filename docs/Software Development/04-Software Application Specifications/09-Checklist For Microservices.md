@@ -18,9 +18,10 @@ Use the following checklist when dealing with a microservices architecture inter
 | SMR-12 | REST: Async Request Reply Pattern              | Use the Asynchronous Request Reply Pattern when dealing with computationally-intesive tasks that spans multiple microservices. See Annex 4.<br />The proper HTTP Code for this response is 202 ACCEPTED |
 | SMR-13 | REST: Use Camel Case for JSONAPI Member Names  | Use Camel Case for naming members in JSONAPI specs.          |
 | SMR-14 | REST: Use Idempotency Key                      | For POST, DELETE and PATCH requests, require header Idempotency-Key to be present. Process requests with the same idempotency key only once. |
-| SMR-15 | Use Open API for REST Documentation            | Use Open API >= 3 to document REST endpoint                  |
-| SMR-16 | Use AsyncAPI For Events Documentation          | Use AsyncAPI >= 2 to document Events.                        |
-| SMR-17 | Pagination must start from 1, not 0            | Pagination must start from page 1. This means that at Page 1, the offset is 0. |
+| SMR-15 | REST: Use Kebab-case for endpoint names        | Use Kebab-case to name your REST endpoints.                  |
+| SMR-16 | Use Open API for REST Documentation            | Use Open API >= 3 to document REST endpoint                  |
+| SMR-17 | Use AsyncAPI For Events Documentation          | Use AsyncAPI >= 2 to document Events.                        |
+| SMR-18 | Pagination must start from 1, not 0            | Pagination must start from page 1. This means that at Page 1, the offset is 0. |
 
 
 
