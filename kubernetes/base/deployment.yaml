@@ -17,12 +17,6 @@ spec:
         app: dsm-client
 
     spec:
-      securityContext:
-        fsGroup: 101
-        runAsUser: 101
-        runAsGroup: 101
-        runAsNonRoot: true
-
       containers:
         - name: dsm-client
           image: IMAGE
@@ -35,7 +29,7 @@ spec:
               cpu: 5m
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 80
 
           livenessProbe:
             tcpSocket:

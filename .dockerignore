@@ -4,7 +4,6 @@
 .dockerignore
 .gitignore
 .docusaurus
-build
 README.md
 Dockerfile
 kubernetes
