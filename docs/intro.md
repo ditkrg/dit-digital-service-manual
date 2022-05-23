@@ -1,6 +1,6 @@
 # Introduction
 
-The Department of Information Technology uses an agile methodology for developing and digitizing government services. The process for developing a digital service is consist of a cycle of three different phases:
+The Department of Information Technology uses an agile methodology for developing and digitizing government services. The process for developing a digital service consists of a cycle of three different phases:
 
 ## Discovery phase
 
