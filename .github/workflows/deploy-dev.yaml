@@ -61,5 +61,6 @@ jobs:
       image: ${{ needs.setup.outputs.image-sha }}
       env_url: https://service-manual.docs.dev.krd
       env_name: development
+
     secrets:
       KUBECONFIG: ${{ secrets.KUBECONFIG }}
