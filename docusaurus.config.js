@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'DIT Digital Service Guidelines',
+  title: 'DIT Digital Services Guidelines',
   url: 'https://service-manual.docs.dev.krd',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -33,7 +33,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'DIT Digital Service Guidelines',
+        title: 'DIT Digital Services Guidelines',
         logo: {
           alt: 'My Site Logo',
           src: 'img/krg-logo.png',
@@ -83,7 +83,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} DIT Digital Service Guidelines.`,
+        copyright: `Copyright © ${new Date().getFullYear()} DIT Digital Services Guidelines.`,
       },
       prism: {
         theme: lightCodeTheme,
