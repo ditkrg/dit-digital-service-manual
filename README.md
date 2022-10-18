@@ -1,1 +1,1 @@
-# DIT Digital Service Manual
+# DIT Digital Services Guidelines
