@@ -29,4 +29,4 @@ During test execution time, the tester will check expected results against actua
 
 That apart your test case -may have a field like, Pre – Condition which specifies things that must be in place before the test can run. For our test case, a pre-condition would be to have the application installed to have access to the Application under test. A test case may also include Post – Conditions which specifies anything that applies after the test case completes. For our test case, a post-condition would be time & date of login is stored in the database
 
-By the end of the test case execution phase, all the executed test cases should be recorded in a template like [this](https://govkrd.b-cdn.net/Digital%20Service%20Manual/Test%20Case%20Design%20Template.docx).
+By the end of the test case execution phase, all the executed test cases should be recorded in a template like [this](https://govkrd.b-cdn.net/Digital%20Service%20Manual/Test%20Case%20Design%20Template.xlsx).
