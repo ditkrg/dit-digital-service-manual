@@ -28,6 +28,7 @@ jobs:
     needs: test
     with:
       image: dit-docs/dsm-client
+      runs-on: "['ubuntu-latest']"
     secrets:
       username: ${{ secrets.HARBOR_PUBLIC_USER }}
       password: ${{ secrets.HARBOR_PUBLIC_TOKEN }}
