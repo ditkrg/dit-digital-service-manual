@@ -1,4 +1,4 @@
-FROM node:16 as build-stage
+FROM node:16 as build
 
 WORKDIR /app
 
@@ -13,7 +13,18 @@ COPY *.js ./
 
 RUN npm run build
 
-FROM nginx:stable-alpine AS production
+RUN echo "nobody:x:1001:1001:nobody:/:" > /etc_passwd
+RUN chown -R 1001:1001 /app/build
 
-COPY --from=build-stage /app/build /usr/share/nginx/html
-EXPOSE 80
+FROM reg.dev.krd/hub.docker/joseluisq/static-web-server:2 AS production
+
+COPY --from=build /app/build /public
+COPY --from=build /etc_passwd /etc/passwd
+
+ENV SERVER_PORT=8080
+ENV SERVER_LOG_LEVEL=info
+ENV SERVER_FALLBACK_PAGE=/public/404.html
+
+USER nobody
+
+EXPOSE 8080
