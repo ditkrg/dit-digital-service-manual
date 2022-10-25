@@ -6,6 +6,8 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
 spec:
+  tls:
+    - secretName: ingress-cert-dit-docs-dsm-client
   rules:
     - http:
         paths:
@@ -14,5 +16,4 @@ spec:
             backend:
               service:
                 name: service
-                port:
-                  number: 80
+                port: { name: http }
