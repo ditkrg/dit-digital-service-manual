@@ -10,4 +10,6 @@ spec:
     app: dsm-client
   ports:
     - port: 80
+      name: http
+      targetPort: http
   type: ClusterIP
