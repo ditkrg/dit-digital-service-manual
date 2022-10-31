@@ -1,6 +1,16 @@
+---
 name: Run Tests
 
 on:
+  push:
+    branches-ignore:
+      - dev
+      - main
+
+    paths-ignore:
+      - "README.md"
+      - ".vscode/**"
+
   workflow_call:
 
 jobs:
@@ -11,15 +21,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Kubectl tool installer
-        uses: Azure/setup-kubectl@v1
+        uses: Azure/setup-kubectl@v3
 
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
-        with:
-          kustomize-version: "4.4.1"
 
       - name: Build k8s manifests
         working-directory: kubernetes
@@ -27,6 +35,6 @@ jobs:
           envs=( "development" "production" )
 
           for i in "${envs[@]}"
-          do 
+          do
             kustomize build "$i"
           done

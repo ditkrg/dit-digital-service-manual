@@ -1,9 +1,8 @@
+---
 - op: add
   path: /spec/rules/0/host
   value: docs.digital.gov.krd
 - op: add
-  path: /spec/tls
+  path: /spec/tls/0/hosts
   value:
-    - hosts:
-        - docs.digital.gov.krd
-      secretName: ingress-cert-dit-docs-dsm-client
+    - docs.digital.gov.krd

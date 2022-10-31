@@ -14,8 +14,7 @@ on:
         required: true
 
     secrets:
-      KUBECONFIG:
-        required: true
+      KUBECONFIG: { required: true }
 
 env:
   NAMESPACE: dit-docs
@@ -30,20 +29,18 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Kubectl tool installer
-        uses: Azure/setup-kubectl@v1
+        uses: Azure/setup-kubectl@v3
 
-      - uses: azure/k8s-set-context@v1
+      - uses: azure/k8s-set-context@v3
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.KUBECONFIG }}
 
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
-        with:
-          kustomize-version: "4.4.1"
 
       - name: Edit kustomization file
         working-directory: kubernetes/base
