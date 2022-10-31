@@ -1,2 +1,5 @@
 /.github/ @ditkrg/devops
 /kubernetes/ @ditkrg/devops
+
+/.dockerignore @ditkrg/devops
+/Dockerfile @ditkrg/devops
