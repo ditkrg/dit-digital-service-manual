@@ -1,6 +1,6 @@
 # Introduction
 
-The Department of Information Technology uses an agile methodology for developing and digitizing government services. The process for developing a digital service consists of a cycle of three different phases:
+The Department of Information Technology uses an agile methodology for developing and digitizing government services. The process for developing a digital service consists of a cycle of four different phases:
 
 ## Discovery phase
 
@@ -12,6 +12,14 @@ The first step of the process is to understand what is the service, what are the
 ## Development phase
 
 When enough requirements are documented after the discovery phase, the Development team starts developing the system with the latest technologies and standards. Additionally, the DevOps team starts preparing the development environment, and builds the CI/CD pipelines for the project. In this phase the system goes through an iterative development process until the software is ready for production. At the end of each iteration the Business Intelligence and Requirement Analysis team checks if all the requirements are met, then the Quality Assurance team will start testing the software before it is released.
+
+# Quality Assurance Phase
+
+Once the development of the software is complete in each sprint, it will be handed over to the Quality Assurance Team along with the technical documentations prepared in the Discovery Phase.
+
+Based on the provided technical documentations, the QA team will plan and test the system properly. When there is a bug or an improvement needed, it will be reported to the development team. Upon a fix by the Development Team, it will be re-tested by the QA team again. This cycle will continue until the software is stable to ensure delivering high-quality services that match user needs and stockholders expectations.
+
+It is highly recommended to involve the QA Team from the early stages of the Software Development Life Cycle (SDLC). Integrating QA practices at the beginning will result in a well-planned and executed project that successfully delivers high value to the stockholders.
 
 ## Production phase
 
