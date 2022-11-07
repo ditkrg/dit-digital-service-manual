@@ -103,7 +103,7 @@ Example:
 
 |User Story #1|
 |---|-----|
-|Who|Citize|
+|Who|Citizen|
 |What|A citizen needs to attach their national ID to the form.|
 |Why|Because the auditor needs to check the identity of the citizen that filled the form.|
 |Priority|Must have|
