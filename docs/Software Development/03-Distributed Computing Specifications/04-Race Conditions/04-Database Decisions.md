@@ -6,6 +6,6 @@ Always place a unique index on columns are that supposed to contain unique value
 
 ## Versioning
 
-It is always a good practice to version records so that is can also comply with the Optimistic Concurrency Control model. This requirement is not forced but it is highly recommended. 
+It is always a good practice to version records so that they can also comply with the Optimistic Concurrency Control model. This requirement is not forced but it is highly recommended. 
 
 The version column must be atomically incremented. 
