@@ -40,11 +40,11 @@ Use the following checklist when dealing with a microservices architecture inter
 ```JSON
 {
   meta: {
-    page: {
+    pagination: {
       totalPages: "integer"
       count: "integer",
-      limitValue:	"integer",
-      currentPage:	"integer"
+      rowsPerPage:	"integer",
+      page:	"integer"
     }
   }
 }
