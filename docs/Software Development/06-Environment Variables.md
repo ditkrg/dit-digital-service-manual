@@ -35,7 +35,7 @@ The following table lists the environment variables that are common to all DIT m
 | NOTIFICATION\_\_WORKFLOW_TRANSITION_EMAIL_TEMPLATE | The email template ID for workflow transition notification                     |
 | RABBITMQ\_\_HOST                                   | The host name or IP address of the RabbitMQ server                             |
 | RABBITMQ\_\_PORT                                   | The port number of the RabbitMQ server                                         |
-| RABBITMQ\_\_VHOS                                   | The virtual host name of the RabbitMQ server                                   |
+| RABBITMQ\_\_VHOST                                  | The virtual host name of the RabbitMQ server                                   |
 | RABBITMQ\_\_USERNAME                               | The username for accessing the RabbitMQ server                                 |
 | RABBITMQ\_\_PASSWORD                               | The password for accessing the RabbitMQ server                                 |
 | RABBITMQ\_\_MAX_ATTEMPTS                           | The maximum number of attempts for retrying failed messages in RabbitMQ queues |
