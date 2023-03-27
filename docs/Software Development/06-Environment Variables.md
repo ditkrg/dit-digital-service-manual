@@ -40,6 +40,7 @@ The following table lists the environment variables that are common to all DIT m
 | RABBITMQ\_\_PASSWORD                               | The password for accessing the RabbitMQ server                                 |
 | RABBITMQ\_\_MAX_ATTEMPTS                           | The maximum number of attempts for retrying failed messages in RabbitMQ queues |
 | RABBITMQ\_\_RETRY_DELAY_IN_SECONDS                 | The delay in seconds between each retry attempt in RabbitMQ queues             |
+| MONGO\_\URL                                        | The MongoDB Connection string                                                  |
 | TAX_CORPORATE_REGISTRATION_PORTAL\_\_URL           | The URL of the tax corporate registration portal                               |
 | EVENTBUS\_\_EXCHANGE_NAME                          | The name of the exchange for event bus                                         |
 
