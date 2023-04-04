@@ -16,7 +16,6 @@ The following table lists the environment variables that are common to all DIT m
 | DATABASE\_\_PASSWORD         | The password for accessing the database                                   |
 | DATABASE\_\_NAME             | The name of the database                                                  |
 | DATABASE\_\_PORT             | The port number of the database server                                    |
-| S3\_\_REGION                 | The AWS region of the S3 bucket                                           |
 | S3\_\_ENDPOINT               | The endpoint URL of the S3 bucket                                         |
 | S3\_\_ACCESS_KEY_ID          | The access key ID for accessing the S3 bucket                             |
 | S3\_\_SECRET_ACCESS_KEY      | The secret access key for accessing the S3 bucket                         |
