@@ -1,9 +1,0 @@
-namespace: dit-docs
-
-targetCustomizations:
-  - name: development
-    clusterSelector:
-      matchLabels:
-        env: dev
-    kustomize:
-      dir: development
