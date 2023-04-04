@@ -4,43 +4,44 @@ This document provides a brief description of the environment variables that are
 
 The following table lists the environment variables that are common to all DIT micro-service applications, along with their descriptions.
 
-| Environment Variable         | Description                                                               |
-| :--------------------------- | :------------------------------------------------------------------------ |
-| CAS\_\_URL                   | URL for the Central Authentication Service (CAS)                          |
-| CAS\_\_M2M_CLIENT_ID         | Client ID for machine-to-machine authentication with the CAS              |
-| CAS\_\_M2M_CLIENT_SECRET     | Client secret for machine-to-machine authentication with the CAS          |
-| DATABASE\_\_CONNECTIONSTRING | The connection string of database server                                  |
-| DATABASE\_\_URL              | The URL format for the connection string of database server               |
-| DATABASE\_\_HOST             | The host name or IP address of the database server                        |
-| DATABASE\_\_USERNAME         | The username for accessing the database                                   |
-| DATABASE\_\_PASSWORD         | The password for accessing the database                                   |
-| DATABASE\_\_NAME             | The name of the database                                                  |
-| DATABASE\_\_PORT             | The port number of the database server                                    |
-| S3\_\_ENDPOINT               | The endpoint URL of the S3 bucket                                         |
-| S3\_\_ACCESS_KEY_ID          | The access key ID for accessing the S3 bucket                             |
-| S3\_\_SECRET_ACCESS_KEY      | The secret access key for accessing the S3 bucket                         |
-| S3\_\_SELF_BUCKET            | The name of the S3 bucket used for storing self-related files             |
-| S3\_\_UPLOADS_API_BUCKET     | The name of the S3 bucket used for storing uploaded files via Uploads API |
-| SIDEKIQ\_\_USERNAME          | The username for accessing the Sidekiq web interface                      |
-| SIDEKIQ\_\_PASSWORD          | The password for accessing the Sidekiq web interface                      |
-| REDIS_SENTINEL\_\_HOST       | The host name or IP address of the Redis Sentinel server                  |
-| REDIS_SENTINEL\_\_PORT       | The port number of the Redis Sentinel server                              |
-| REDIS_SENTINEL\_\_PASSWORD   | The password for accessing the Redis Sentinel server                      |
-| REDIS_SENTINEL\_\_MASTER     | The name of the Redis Sentinel master                                     |
-| REDIS\_\_PASSWORD            | The password for accessing the Redis server                               |
-| REDIS\_\_DB                  | The number of the Redis database                                          |
-| SIDEKIQ\_\_REDIS_DB          | The number of the Redis database for Sidekiq                              |
-| SENTRY\_\_DSN                | The data source name (DSN) for Sentry error tracking                      |
-| SENTRY\_\_TRACE_RATE         | The sampling rate for Sentry performance tracing                          |
-| SENTRY\_\_ENVIRONMENT        | The environment name for Sentry error tracking                            |
-| GATEWAY\_\_CERTIFICATE       | The certificate file for accessing the gateway service                    |
-| RABBITMQ\_\_URL              | The URL the RabbitMQ server                                               |
-| RABBITMQ\_\_HOST             | The host name or IP address of the RabbitMQ server                        |
-| RABBITMQ\_\_PORT             | The port number of the RabbitMQ server                                    |
-| RABBITMQ\_\_VHOST            | The virtual host name of the RabbitMQ server                              |
-| RABBITMQ\_\_USERNAME         | The username for accessing the RabbitMQ server                            |
-| RABBITMQ\_\_PASSWORD         | The password for accessing the RabbitMQ server                            |
-| RABBITMQ\_\_EXCHANGE_NAME    | The name of the exchange for RabbitMQ server                              |
+| Environment Variable          | Description                                                               |
+| :---------------------------- | :------------------------------------------------------------------------ |
+| CAS\_\_URL                    | URL for the Central Authentication Service (CAS)                          |
+| CAS\_\_M2M_CLIENT_ID          | Client ID for machine-to-machine authentication with the CAS              |
+| CAS\_\_M2M_CLIENT_SECRET      | Client secret for machine-to-machine authentication with the CAS          |
+| DATABASE\_\_CONNECTION_STRING | The connection string of database server                                  |
+| DATABASE\_\_URL               | The URL format for the connection string of database server               |
+| DATABASE\_\_HOST              | The host name or IP address of the database server                        |
+| DATABASE\_\_USERNAME          | The username for accessing the database                                   |
+| DATABASE\_\_PASSWORD          | The password for accessing the database                                   |
+| DATABASE\_\_NAME              | The name of the database                                                  |
+| DATABASE\_\_PORT              | The port number of the database server                                    |
+| S3\_\_ENDPOINT                | The endpoint URL of the S3 bucket                                         |
+| S3\_\_ACCESS_KEY_ID           | The access key ID for accessing the S3 bucket                             |
+| S3\_\_SECRET_ACCESS_KEY       | The secret access key for accessing the S3 bucket                         |
+| S3\_\_SELF_BUCKET             | The name of the S3 bucket used for storing self-related files             |
+| S3\_\_UPLOADS_API_BUCKET      | The name of the S3 bucket used for storing uploaded files via Uploads API |
+| SIDEKIQ\_\_USERNAME           | The username for accessing the Sidekiq web interface                      |
+| SIDEKIQ\_\_PASSWORD           | The password for accessing the Sidekiq web interface                      |
+| REDIS\_\_CONNECTION_STRING    | The connection string of redis database server                            |
+| REDIS_SENTINEL\_\_HOST        | The host name or IP address of the Redis Sentinel server                  |
+| REDIS_SENTINEL\_\_PORT        | The port number of the Redis Sentinel server                              |
+| REDIS_SENTINEL\_\_PASSWORD    | The password for accessing the Redis Sentinel server                      |
+| REDIS_SENTINEL\_\_MASTER      | The name of the Redis Sentinel master                                     |
+| REDIS\_\_PASSWORD             | The password for accessing the Redis server                               |
+| REDIS\_\_DB                   | The number of the Redis database                                          |
+| SIDEKIQ\_\_REDIS_DB           | The number of the Redis database for Sidekiq                              |
+| SENTRY\_\_DSN                 | The data source name (DSN) for Sentry error tracking                      |
+| SENTRY\_\_TRACE_RATE          | The sampling rate for Sentry performance tracing                          |
+| SENTRY\_\_ENVIRONMENT         | The environment name for Sentry error tracking                            |
+| GATEWAY\_\_CERTIFICATE        | The certificate file for accessing the gateway service                    |
+| RABBITMQ\_\_URL               | The URL the RabbitMQ server                                               |
+| RABBITMQ\_\_HOST              | The host name or IP address of the RabbitMQ server                        |
+| RABBITMQ\_\_PORT              | The port number of the RabbitMQ server                                    |
+| RABBITMQ\_\_VHOST             | The virtual host name of the RabbitMQ server                              |
+| RABBITMQ\_\_USERNAME          | The username for accessing the RabbitMQ server                            |
+| RABBITMQ\_\_PASSWORD          | The password for accessing the RabbitMQ server                            |
+| RABBITMQ\_\_EXCHANGE_NAME     | The name of the exchange for RabbitMQ server                              |
 
 ## Environment Variables for Micro-Service Applications
 
