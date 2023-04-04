@@ -43,8 +43,6 @@ The following table lists the environment variables that are common to all DIT m
 | RABBITMQ\_\_PASSWORD         | The password for accessing the RabbitMQ server                            |
 | RABBITMQ\_\_EXCHANGE_NAME    | The name of the exchange for RabbitMQ server                              |
 
-In addition to these common environment variables, some applications may have specific environment variables that are related to their functionality or dependencies. These variables are prefixed with the name of the application or service that they belong to, such as `TAX_CORPORATE_REGISTRATION_PORTAL_URL`. These variables are documented in their respective application repositories or README files.
-
 ## Environment Variables for Micro-Service Applications
 
 1. Use double underscores (\_\_) to separate words in the variable name.
