@@ -22,7 +22,7 @@ env:
 jobs:
   deploy:
     timeout-minutes: 10
-    runs-on: [self-hosted, ubuntu-focal]
+    runs-on: ubuntu-20.04
     environment:
       url: ${{ inputs.env_url }}
       name: ${{ inputs.env_name }}
