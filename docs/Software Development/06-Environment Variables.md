@@ -13,8 +13,8 @@ The following table lists the environment variables that are common to all DIT m
 | DATABASE\_\_PORT                   | The port number of the database server                                         |
 | S3\_\_REGION                       | The AWS region of the S3 bucket                                                |
 | S3\_\_ENDPOINT                     | The endpoint URL of the S3 bucket                                              |
-| S3\_\_ACCESS_KEY_ID                | The access key ID for accessing the S3 bucket                                  |
-| S3\_\_SECRET_ACCESS_KEY            | The secret access key for accessing the S3 bucket                              |
+| S3\_\_ACCESS_KEY                   | The access key ID for accessing the S3 bucket                                  |
+| S3\_\_SECRET_KEY                   | The secret access key for accessing the S3 bucket                              |
 | S3\_\_BUCKET                       | The name of the S3 bucket                                                      |
 | SIDEKIQ\_\_USERNAME                | The username for accessing the Sidekiq web interface                           |
 | SIDEKIQ\_\_PASSWORD                | The password for accessing the Sidekiq web interface                           |
@@ -29,6 +29,7 @@ The following table lists the environment variables that are common to all DIT m
 | SENTRY\_\_TRACE_RATE               | The sampling rate for Sentry performance tracing                               |
 | SENTRY\_\_ENVIRONMENT              | The environment name for Sentry error tracking                                 |
 | GATEWAY\_\_CERTIFICATE             | The certificate file for accessing the gateway service                         |
+| RABBITMQ\_\_URL                    | The URL the RabbitMQ server                                                    |
 | RABBITMQ\_\_HOST                   | The host name or IP address of the RabbitMQ server                             |
 | RABBITMQ\_\_PORT                   | The port number of the RabbitMQ server                                         |
 | RABBITMQ\_\_VHOST                  | The virtual host name of the RabbitMQ server                                   |
@@ -37,7 +38,7 @@ The following table lists the environment variables that are common to all DIT m
 | RABBITMQ\_\_MAX_ATTEMPTS           | The maximum number of attempts for retrying failed messages in RabbitMQ queues |
 | RABBITMQ\_\_RETRY_DELAY_IN_SECONDS | The delay in seconds between each retry attempt in RabbitMQ queues             |
 | MONGO\_\URL                        | The MongoDB Connection string                                                  |
-| SERIVCE\_\_[Name of service]\_URL  | The URL of the tax corporate registration portal                               |
+| SERIVCE\_\_[Name of service]\_URL  | The URL of other services                                                      |
 | EVENTBUS\_\_EXCHANGE_NAME          | The name of the exchange for event bus                                         |
 | EMAIL_TEMPLATE_ID\_\_[action]      | The database ID of the email template                                          |
 
