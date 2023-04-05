@@ -1,0 +1,45 @@
+---
+name: Deploy To Production
+
+on:
+  push:
+    branches:
+      - main
+
+    paths-ignore:
+      - "README.md"
+      - ".vscode/**"
+
+      - ".github/**"
+      - "!.github/workflows/tests-base.yaml"
+      - "!.github/workflows/deploy-base.yaml"
+      - "!.github/workflows/deploy-production.yaml"
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  test:
+    uses: ditkrg/dit-digital-service-manual/.github/workflows/tests-base.yaml@main
+
+  build:
+    uses: ditkrg/build-image-workflow/.github/workflows/workflow.yaml@v1
+    needs: test
+    with:
+      image: dit-docs/dsm-client
+      runs-on: "['ubuntu-latest']"
+    secrets:
+      username: ${{ secrets.HARBOR_PUBLIC_USER }}
+      password: ${{ secrets.HARBOR_PUBLIC_TOKEN }}
+
+  deploy:
+    uses: ./.github/workflows/deploy-base.yaml
+    needs: build
+    with:
+      image: ${{ needs.build.outputs.tag }}
+      env_url: https://docs.digital.gov.krd
+      env_name: production
+
+    secrets:
+      KUBECONFIG: ${{ secrets.KUBECONFIG }}
