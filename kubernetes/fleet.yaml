@@ -7,3 +7,9 @@ targetCustomizations:
         env: dev
     kustomize:
       dir: development
+  - name: production
+    clusterSelector:
+      matchLabels:
+        env: prod
+    kustomize:
+      dir: production
