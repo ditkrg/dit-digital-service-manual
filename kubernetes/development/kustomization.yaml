@@ -9,3 +9,6 @@ patches:
   - path: patches/ingress-host.yaml
     target:
       kind: Ingress
+  - path: patches/deployment.yaml
+    target:
+      kind: Deployment

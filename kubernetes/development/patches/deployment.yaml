@@ -1,0 +1,6 @@
+- op: replace
+  path: /spec/template/spec/containers/0/image
+  value: reg.dev.krd/dit-docs/dsm-client:dev
+- op: add
+  path: /spec/template/spec/containers/0/imagePullPolicy
+  value: Always
