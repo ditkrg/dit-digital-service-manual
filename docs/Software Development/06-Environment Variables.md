@@ -23,6 +23,7 @@ The following table lists the environment variables that are common to all DIT m
 | S3\_\_UPLOADS_API_BUCKET      | The name of the S3 bucket used for storing uploaded files via Uploads API |
 | SIDEKIQ\_\_USERNAME           | The username for accessing the Sidekiq web interface                      |
 | SIDEKIQ\_\_PASSWORD           | The password for accessing the Sidekiq web interface                      |
+| SIDEKIQ\_\_REDIS_URL          | The URL of the redis database used by the Sidekiq web interface           |
 | REDIS\_\_URL                  | The URL format for the connection string of redis database server         |
 | REDIS\_\_CONNECTION_STRING    | The connection string of redis database server                            |
 | REDIS_SENTINEL\_\_HOST        | The host name or IP address of the Redis Sentinel server                  |
