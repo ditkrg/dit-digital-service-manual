@@ -22,7 +22,7 @@ env:
 jobs:
   deploy:
     timeout-minutes: 10
-    runs-on: ubuntu-20.04
+    runs-on: [self-hosted, ubuntu-jammy, public]
     environment:
       url: ${{ inputs.env_url }}
       name: ${{ inputs.env_name }}
@@ -32,7 +32,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Kubectl tool installer
-        uses: Azure/setup-kubectl@v3
+        uses: azure/setup-kubectl@v3
+        with:
+          version: v1.25.8
 
       - uses: azure/k8s-set-context@v3
         with:
