@@ -1,8 +1,0 @@
----
-- op: add
-  path: /spec/rules/0/host
-  value: docs.digital.gov.krd
-- op: add
-  path: /spec/tls/0/hosts
-  value:
-    - docs.digital.gov.krd
