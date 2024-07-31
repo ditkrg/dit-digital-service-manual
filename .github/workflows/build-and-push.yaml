@@ -33,7 +33,7 @@ jobs:
         uses: ditkrg/update-gitops-image@v1
         with:
           owner: ditkrg
-          repo: dit-digital-service-manual-gitops
+          repo: knowledge-base-gitops
           app-id: ${{ secrets.GITOPS_RUNNER_APP_ID }}
           image-tag: ${{ needs.build.outputs.tag }}
           private-key: ${{ secrets.GITOPS_RUNNER_PRIVATE_KEY }}
