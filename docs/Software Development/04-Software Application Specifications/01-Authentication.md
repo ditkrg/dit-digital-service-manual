@@ -44,11 +44,13 @@ When validating the access token, it is important to check:
 4. `alg`: the algorithm, which must be `RS256`.
 5. `kid`: which is the key with which the token is signed. For this, you will need to use the JWKS endpoint (refer to Discovery in this section) to verify the public key.
 
+**Note: We highly recommend using existing packages and libraries that take care of the implementations mentioned in this guide instead of making raw HTTP requests using an HTTP client. The existing libraries are battle-tested and take care of many abstraction that you may skip.**
+
 ## Authentication Flows
 
 ### Client Credentials Flow
 
-DIT's authentication scheme follows OpenID and OAuth2 standards. In the case of Madfoatcom's software, machine-to-machine (M2M) communication is required, which can be achieved through the "client_credentials" flow.
+DIT's authentication scheme follows OpenID and OAuth2 standards. In your software requires machine-to-machine (M2M) communication, authentication can be achieved through the "client_credentials" flow.
 
 To access the desired APIs within the DIT ecosystem, backend services must obtain an access token from the Central Authentication Service (CAS) by providing a Client ID, Client Secret, and specific scopes to which the given client can access. The CAS is OpenID-compliant and provides a discovery URL, which can be used by OpenID Clients to easily discover the specific configurations of DIT's CAS.
 
@@ -90,7 +92,9 @@ You can use the access token from the response above to connect to the specific 
 
 When using this flow, we prohibit access tokens to be stored on the client-side due to security concerns. All access tokens, refresh tokens, and ID tokens must be concealed and be kept from the browser or any other client that is prone to exposure.
 
-For that, we follow the Backend for Frontends Pattern to safely store access tokens. Take a look at our [Backend for Frontends](https://github.com/ditkrg/Backend-for-Frontends-Template) implementation, which we mainly use for this flow.
+For that, we follow the Backend for Frontends (BFF) Pattern to safely store access tokens. Take a look at our [Backend for Frontends](https://github.com/ditkrg/Backend-for-Frontends-Template) for an implementation reference.
+
+We highly recommend [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) as the go-to solution for the Backend for Frontends implementation. It's ready for use. 
 
 If you are about to use this flow, speak to the Head of Digital Development and DevOps to set the Backend for Frontends according to your needs. Otherwise, it is considered to be an application bug.
 
@@ -129,8 +133,11 @@ OAuth 2.0 with Authorization Code Grant and Proof Key for Code Exchange (PKCE) i
      redirect_uri=YOUR_REDIRECT_URI&
      scope=YOUR_SCOPES&
      code_challenge=YOUR_CODE_CHALLENGE&
-     code_challenge_method=S256
+     code_challenge_method=S256&
+     state=UNIQUE_IDENTIFIER_OF_CHALLENGE
      ```
+
+     **Note: It is crucial to store this challenge in a temporary persistent store / database and associate with a unique key. The unique, then, must be sent as a `state` to the authorization server (CAS). The `state` will later be sent back to your client in step number 5, which can be used to track down the `code_verifier`**
 
 5. The user logs in and grants permissions to the client application.
 
@@ -139,10 +146,10 @@ OAuth 2.0 with Authorization Code Grant and Proof Key for Code Exchange (PKCE) i
    2. Example redirect:
 
       ```bash
-      https://your-app.com/callback?code=AUTHORIZATION_CODE
+      https://your-app.com/callback?code=AUTHORIZATION_CODE&state=UNIQUE_IDENTIFIER_OF_CHALLENGE 
       ```
 
-      
+   3. Use the value of the `state` to find the `code_verifier` that is needed in the next step (6. Token Request).
 
 6. Token Request:
 
