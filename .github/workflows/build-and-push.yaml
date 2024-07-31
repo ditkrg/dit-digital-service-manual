@@ -1,0 +1,40 @@
+---
+name: Build and Create PR
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+    paths-ignore:
+      - "**.md"
+      - ".vscode/**"
+
+      - ".github/**"
+      - "!.github/workflows/tests-base.yaml"
+      - "!.github/workflows/build-and-push.yaml"
+
+jobs:
+  build:
+    uses: ditkrg/build-image-workflow/.github/workflows/workflow.yaml@v1
+    with:
+      image: dit-docs/dsm-client
+      runs-on: "['ubuntu-latest']"
+    secrets:
+      username: ${{ secrets.HARBOR_PUBLIC_USER }}
+      password: ${{ secrets.HARBOR_PUBLIC_TOKEN }}
+
+  update-gitops:
+    runs-on: ubuntu-latest
+    concurrency: pr-${{ github.ref_name }}
+    needs: build
+    steps:
+      - name: Update gitops
+        uses: ditkrg/update-gitops-image@v1
+        with:
+          owner: ditkrg
+          repo: dit-digital-service-manual-gitops
+          app-id: ${{ secrets.GITOPS_RUNNER_APP_ID }}
+          image-tag: ${{ needs.build.outputs.tag }}
+          private-key: ${{ secrets.GITOPS_RUNNER_PRIVATE_KEY }}
+          component-name: digital-service-manual
